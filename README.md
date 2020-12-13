@@ -2,7 +2,7 @@
 
 Like @lodash, but with more dashes (lots of functionality, and uses underscores instead of camelCase). Kitchen sink utilities and "pure" functions (almost pure - sorting use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc.
 
-See also: 📙🚀 [@twodash/browser](https://github.com/twodashes/browser) 📙🚀, which is structured the same way, but only for browser-specific code like OS, Retina, AJAX, URLs, etc. Coming soon: "@twodash/node", including HTTP requests and CLI args for Node. Planned for the future are more platform-specific functions: "@twodash/rnative" for React Native, "@twodash/ionic", and in a galaxy far far away "@twodash/quasar".
+See also: 📙🚀 [@twodashes/browser](https://github.com/twodashes/browser) 📙🚀, which is structured the same way, but only for browser-specific code like OS, Retina, AJAX, URLs, etc. Coming soon: "@twodashes/node", including HTTP requests and CLI args for Node. Planned for the future are more platform-specific functions: "@twodashes/rnative" for React Native, "@twodashes/ionic", and in a galaxy far far away "@twodashes/quasar".
 
 ### ⚠️ PLEASE NOTE: ⚠️
 
@@ -16,18 +16,18 @@ Try it out in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-universal-de
 These are exported for your choice of environment. When importing, specify **cjs**/**esm**/**\_\_** format. The **\_\_** is meant to be used with the browser `<script>` tag. It creates a `window.__` variable.
 
 ```JavaScript
-  import { sort_by_rating_and_position } from "@twodash/universal/esm/sort_strings"
+  import { sort_by_rating_and_position } from "@twodashes/universal/esm/sort_strings"
 ```
 
 ```JavaScript
-  const sort_strings = require("@twodash/universal/esm/sort_strings")
+  const sort_strings = require("@twodashes/universal/esm/sort_strings")
 ```
 
 ```JavaScript
   <!-- download all functions into window.__ -->
-  <script src="https://cdn.jsdelivr.net/npm/@twodash/universal@latest/__/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/__/index.js"></script>
   <!-- download only the types of functions you need_ -->
-  <script src="https://cdn.jsdelivr.net/npm/@twodash/universal@latest/__/sort_strings.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/__/sort_strings.js"></script>
 ```
 
 # Documentation
