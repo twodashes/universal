@@ -1,6 +1,6 @@
 {
   "name": "@twodashes/universal",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Like @lodash, but with more dashes (lots of functionality, and uses underscores instead of camelCase). Kitchen sink utilities and \"pure\" functions (almost pure - sorting use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc. See also @twodashes/node and @twodashes/browser.",
   "private": false,
   "dependencies": {},
