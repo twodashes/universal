@@ -17,7 +17,7 @@ function querystring_from_object(params = {}) {
   if (qs) {
     qs = "?" + qs;
   }
-  return qs
+  return qs;
 }
 
 /**
@@ -31,10 +31,10 @@ function object_from_querystring(str = "") {
   let obj = {};
   let pairs = str.replace("?", "").split("&");
   for (let pair of pairs) {
-    if (!pair) continue
+    if (!pair) continue;
     let tuple = pair.split("=");
     let key = tuple[0];
-    if (!key) continue
+    if (!key) continue;
     obj[key] = tuple[1] || "";
   }
   // decode value
@@ -42,7 +42,7 @@ function object_from_querystring(str = "") {
     obj[key] = decodeURIComponent(obj[key] || "").trim();
   }
   // done
-  return obj
+  return obj;
 }
 
 /**
@@ -67,7 +67,7 @@ function querystring_replace_key_value(queryString, key, value) {
     output += pair[0] + "=";
     output += pair[1] + "&";
   }
-  return string.str_trim_char(output, "&")
+  return string.str_trim_char(output, "&");
 }
 
 /*

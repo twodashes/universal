@@ -1,4 +1,4 @@
-# Universal "kitchen sink" unitlity functions
+# Universal "kitchen sink" utility functions
 
 Like @lodash, but with more dashes (lots of functionality, and uses underscores instead of camelCase). Kitchen sink utilities and "pure" functions (almost pure - sorting use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc.
 
@@ -93,8 +93,20 @@ As I make write (or find on Stackoverflow) a new function for myself/clients/emp
 
 See [CodePen example](https://codepen.io/paulshorey/pen/bGweWaB?editors=0012). Play around with all the functions.
 
-# Development:
+# Develop:
+
+Please try it, file an issue, add or fix some code, make a pull request. I'd love to make you an equal contributor. Contact [Paul Shorey](https://paulshorey.com) with any feaute requests or bugs. Thank you! Unit tests, code sandbox examples, and better documentation coming soon.
 
 This project is built using ES Modules in `./esm`. It is then compiled into CommonJS into `./cjs` and for the browser (exported as window.**) in `./**`. Read more about [ES Modules](https://nodejs.org/api/esm.html).
 
-Please try it, file an issue, add or fix some code, make a pull request. I'd love to make you an equal contributor. Contact [Paul Shorey](https://paulshorey.com) with any feaute requests or bugs. Thank you! Unit tests, code sandbox examples, and better documentation coming soon.
+## npm run build:
+
+**npm run build** runs these npm scripts, in this order:
+
+1. **ignore_index** - Copy ./esm/index.js to ./index.mjs (so it does not get converted in next step \*\*)
+2. **esm_cjs** - Convert ./esm to ./cjs
+3. **putback_index** - Copy ./index.mjs back to ./esm/index.js
+4. **esm_cjs_index** - Convert ./esm/index.js to ./cjs/index.js (so it can get processed without reference to other files)
+5. **browser** - Convert ./esm to ./__
+
+\*\* Don't want to convert `./esm/index.js` to `./cjs/index.js` along with all the other modules in `./esm`, because `rollup` breaks up the functions to prevent redundant code. But I actually want `index.js` to be redundant, to contain code that is already in the other module files. This way, `index.js` is self-contained, and other files are self-contained, not importing anything. I could not figure out how to configure `rollup` command to NOT build with `require()` commands. Can not have `require()` commands because the `parcel` command does convert to browser code well with require commands. Each file already needs to be self-contained before running `parcel build`.
