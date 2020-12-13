@@ -1,6 +1,6 @@
 # Universal "kitchen sink" utility functions
 
-Like @lodash, but with more dashes (lots of functionality, and uses underscores instead of camelCase). Kitchen sink utilities and "pure" functions (almost pure - sorting use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc.
+Like @lodash, but with more dashes (lots of functionality, and uses underscores instead of camelCase). Utilities and "pure" functions (almost pure - sorting use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc.
 
 See also: 📙🚀 [@twodashes/browser](https://github.com/twodashes/browser) 📙🚀, which is structured the same way, but only for browser-specific code like OS, Retina, AJAX, URLs, etc. Coming soon: "@twodashes/node", including HTTP requests and CLI args for Node. Planned for the future are more platform-specific functions: "@twodashes/rnative" for React Native, "@twodashes/ionic", and in a galaxy far far away "@twodashes/quasar".
 
