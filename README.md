@@ -1,8 +1,8 @@
 # Universal "kitchen sink" unitlity functions
 
-Mostly "pure" - except sorting utils, which use [].sort() and transform the incoming array.
+Like @lodash, but with more dashes (lots of functionality, and uses underscores instead of camelCase). Kitchen sink utilities and "pure" functions (almost pure - sorting use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc.
 
-See also: [@twodash/node](#) and [@twodash/browser](#), which are structured the same way, but are less pure and more platform specific. Planned for the future are more platform-specific functions: "@twodash/rnative" for React Native, "@twodash/ionic", and in a galaxy far far away "@twodash/quasar".
+See also: [@twodash/node](#) and [@twodash/browser](#), which are structured the same way, but are less pure and more platform-specific. Planned for the future are more platform-specific functions: "@twodash/rnative" for React Native, "@twodash/ionic", and in a galaxy far far away "@twodash/quasar".
 
 Inspired by [Lodash](https://lodash.com/docs/4.17.15). This library contains some functions useful to me ([Paul Shorey](https://paulshorey.com)) which are not included in Lodash. Please contribute. I'd love to add you as an equal [@twodash](https://www.npmjs.com/~twodash) team member.
 
