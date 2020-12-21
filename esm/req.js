@@ -1,43 +1,67 @@
 /**
  * Parse and combine POST data and URL params into JavaScript object
  * @param req {object} - IMPORTANT: does not have to be real api request. Can be simple object.
- * @param req.body {object} - key/value pairs, already parsed and ready to use
- * @param req.query {object} - object of key/value pairs from URL query string
- *    This function will decodeURIComponent then parse each value.
- *    These req.query values will override values from req.body!
+ * @param req.body {object} - key/value pairs, already parsed and ready to use (ex: {options:{}})
+ * @param req.query {object} - object of key/value pairs from URL query string (ex: ?str=wordio&tld=co)
+ *    will override req.body. Values will be processed by decodeURIComponent
+ * @param req.params {object} - object of key/value pairs from URL path  (ex: /v1/word/:key)
+ *    will override req.query. Values will be processed by decodeURIComponent
  * @returns {{}} - combined keys/values. Original request object will NOT be modified.
  */
 const aggregate_req_body_query = function (req) {
-  let query = {};
-  // body (POST data)
+  /*
+   * 1. prepare output
+   */
+  let output = {};
+  // default value - to be overridden by more query/params:
+  // req.body is least important
   if (req.body) {
-    query = req.body;
+    output = req.body;
   }
-  // query (URL parameters)
+  /*
+   * 2. aggregate inputs
+   */
+  // req.query is more important than req.body
+  let inputs = {};
   if (req.query) {
-    for (let key in req.query) {
-      let val = req.query[key];
+    inputs = req.query;
+  }
+  // req.params is the most important
+  if (req.params) {
+    for (let key in req.params) {
+      let val = req.params[key]
+      if (val && val!==0) {
+        inputs[key] = val
+      }
+    }
+  }
+  /*
+   * 3. process inputs
+   */
+  if (inputs) {
+    for (let key in inputs) {
+      let val = inputs[key];
       if (val === 0) {
-        query[key] = 0;
+        output[key] = 0;
         continue;
       }
       if (!val) continue;
       val = decodeURIComponent(val).trim();
       if (!val) continue;
       if (val === "undefined") {
-        query[key] = "undefined";
+        output[key] = "undefined";
         continue;
       }
       if (val === "null") {
-        query[key] = "null";
+        output[key] = "null";
         continue;
       }
       if (val === "true") {
-        query[key] = true;
+        output[key] = true;
         continue;
       }
       if (val === "false") {
-        query[key] = false;
+        output[key] = false;
         continue;
       }
       if (['"', "{", "["].includes(val[0])) {
@@ -47,11 +71,11 @@ const aggregate_req_body_query = function (req) {
           val = "";
         }
       }
-      query[key] = val;
+      output[key] = val;
     }
   }
   // combined
-  return query;
+  return output;
 };
 
 /*
