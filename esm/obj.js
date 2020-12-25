@@ -27,11 +27,51 @@ function obj_prop(obj, prop_child, prop_grandchild, prop_grandgrandchild) {
   }
 }
 
+
+/**
+ * Return the first value in an object
+ *    Iterate the object only once. Return the first value.
+ * @param {object} obj
+ * @returns value of first item in object
+ */
+const obj_first_value = function obj_first_value(obj) {
+  for (let key in obj) { // doesn't loop, but that's the point!
+    return obj[key]
+  }
+};
+
+
+/**
+ * Return the first entry (key and value tuple) in an object
+ *    Iterate the object only once. Return the first entry.
+ * @param {object} obj
+ * @returns value of first item in object
+ */
+const obj_first_entry = function obj_first_value(obj) {
+  for (let key in obj) { // doesn't loop, but that's the point!
+    return [key, obj[key]]
+  }
+};
+
+/**
+ * @param {object} obj
+ * @returns {boolean} - true if empty
+ */
+const obj_is_empty = function obj_is_empty(obj) {
+  for (let prop in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+      return false
+    }
+  }
+  return true
+};
+
+
 /*
  * EXPORT FOR BROWSER
  */
 if (typeof window === "object") {
-  const browser = { obj_prop };
+  const browser = { obj_prop, obj_first_value, obj_first_entry, obj_is_empty };
   // set up for export
   window.__ = window.__ || {};
   // flatten
@@ -40,4 +80,4 @@ if (typeof window === "object") {
   }
 }
 /* EXPORT FOR NODE */
-export { obj_prop };
+export { obj_prop, obj_first_value, obj_first_entry, obj_is_empty };

@@ -10,7 +10,7 @@
  */
 function call_later(func, args) {
   return function () {
-    return func(args);
+    return func(...args);
   };
 }
 
