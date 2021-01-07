@@ -2,15 +2,14 @@
 
 Like @lodash, but with more dashes (lots of functionality, and uses underscores instead of camelCase). Utilities and "pure" functions (almost pure - sorting use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc.
 
-See also: 📙🚀 [@twodashes/browser](https://github.com/twodashes/browser) 📙🚀, which is structured the same way, but only for browser-specific code like OS, Retina, AJAX, URLs, etc. Coming soon: "@twodashes/node", including HTTP requests and CLI args for Node. Planned for the future are more platform-specific functions: "@twodashes/rnative" for React Native, "@twodashes/ionic", and in a galaxy far far away "@twodashes/quasar".
+See also: 📙🚀 [@twodashes/browser](https://github.com/twodashes/browser) 📙🚀, which is structured the same way, but only for browser-specific code like OS, Retina, AJAX, URLs, etc. Also [@twodashes/node](https://github.com/twodashes/node), for HTTP requests and CLI args for Node. Planned for the future are more platform-specific functions: "@twodashes/rnative" for React Native, "@twodashes/ionic", and in a galaxy far far away "@twodashes/quasar".
 
 ### ⚠️ PLEASE NOTE: ⚠️
 
-All names in this library (functions, files) will change. Currently figuring out what to call everything. This library will be stabled when released as **`version 1`**.
+All names in this library (functions, files) will change. Currently figuring out what to call everything. This library will be stabled when released as **`version 1`**. All this is new and NOT well tested. Please let me know if anything is broken.
 
 [![npm package](https://img.shields.io/npm/v/@twodashes/universal.svg)](https://www.npmjs.com/package/@twodashes/universal)
 Try it out in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-universal-demo-2r4os)**
-
 
 # Installation
 
@@ -25,14 +24,13 @@ These are exported for your choice of environment. When importing, specify **cjs
 ```
 
 ```html
-  <!-- download all functions into window.__ -->
-  <script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/__/index.js"></script>
-  <!-- download only the types of functions you need_ -->
-  <script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/__/sort_strings.js"></script>
+<!-- download all functions into window.__ -->
+<script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/__/index.js"></script>
+<!-- download only the types of functions you need_ -->
+<script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/__/sort_strings.js"></script>
 ```
 
-Why not UMD modules standard? **Code splitting**. By specifying your choice "esm" (ES Modules), "cjs" (CommonJS) or "__" (`window.__`), you can download only the specific functions youre actually using, not everthing else. Additionally on the browser, you can download multiple times using multiple `<script>` tags (for example both `@twodashes/universal` and `@twodashes/browser`, or `/sort_strings` and `/arrays`). All downloaded scripts will be combined into one single flat `window.__` dictionary/object. See [code sandbox](https://codesandbox.io/s/twodashes-universal-demo-2r4os). Please do message ([Paul](https://paulshorey.com)) if this is unclear, or if may know a better way of accomplishing all this.
-
+Why not UMD modules standard? **Code splitting**. By specifying your choice "esm" (ES Modules), "cjs" (CommonJS) or "**" (`window.**`), you can download only the specific functions youre actually using, not everthing else. Additionally on the browser, you can download multiple times using multiple`<script>`tags (for example both`@twodashes/universal`and`@twodashes/browser`, or`/sort_strings`and`/arrays`). All downloaded scripts will be combined into one single flat`window.\_\_` dictionary/object. See [code sandbox](https://codesandbox.io/s/twodashes-universal-demo-2r4os). Please do message ([Paul](https://paulshorey.com)) if this is unclear, or if may know a better way of accomplishing all this.
 
 # Documentation
 
@@ -61,7 +59,6 @@ Why not UMD modules standard? **Code splitting**. By specifying your choice "esm
 - [javascript-algorithms](https://github.com/trekhleb/javascript-algorithms)
 - [todash](https://github.com/hannq/todash/tree/master/src) - comments/readme all in Chinese
 - [numjs](#) - brings some array/math functionality from Python to JS
-
 
 # Featured (examples):
 
@@ -103,7 +100,6 @@ As I make write (or find on Stackoverflow) a new function for myself/clients/emp
 
 See [CodePen example](https://codepen.io/paulshorey/pen/bGweWaB?editors=0012). Play around with all the functions.
 
-
 # Develop:
 
 Please try it, file an issue, add or fix some code, make a pull request. I'd love to make you an equal contributor. Contact [Paul Shorey](https://paulshorey.com) with any feaute requests or bugs. Thank you! Unit tests, code sandbox examples, and better documentation coming soon.
@@ -118,6 +114,6 @@ This project is built using ES Modules in `./esm`. It is then compiled into Comm
 2. **esm_cjs** - Convert ./esm to ./cjs
 3. **putback_index** - Copy ./index.mjs back to ./esm/index.js
 4. **esm_cjs_index** - Convert ./esm/index.js to ./cjs/index.js (so it can get processed without reference to other files)
-5. **browser** - Convert ./esm to ./__
+5. **browser** - Convert ./esm to ./\_\_
 
 \*\* Don't want to convert `./esm/index.js` to `./cjs/index.js` along with all the other modules in `./esm`, because `rollup` breaks up the functions to prevent redundant code. But I actually want `index.js` to be redundant, to contain code that is already in the other module files. This way, `index.js` is self-contained, and other files are self-contained, not importing anything. I could not figure out how to configure `rollup` command to NOT build with `require()` commands. Can not have `require()` commands because the `parcel` command does convert to browser code well with require commands. Each file already needs to be self-contained before running `parcel build`.
