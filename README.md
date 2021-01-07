@@ -11,7 +11,7 @@ All names in this library (functions, files) will change. Currently figuring out
 [![npm package](https://img.shields.io/npm/v/@twodashes/universal.svg)](https://www.npmjs.com/package/@twodashes/universal)
 Try it out in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-universal-demo-2r4os)**
 
-<p>&nbsp;</p>
+
 # Installation
 
 These are exported for your choice of environment. When importing, specify **cjs**/**esm**/**\_\_** format. The **\_\_** is meant to be used with the browser `<script>` tag. It creates a `window.__` variable.
@@ -31,7 +31,9 @@ These are exported for your choice of environment. When importing, specify **cjs
   <script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/__/sort_strings.js"></script>
 ```
 
-<p>&nbsp;</p>
+Why not UMD modules standard? **Code splitting**. By specifying your choice "esm" (ES Modules), "cjs" (CommonJS) or "__" (`window.__`), you can download only the specific functions youre actually using, not everthing else. Additionally on the browser, you can download multiple times using multiple `<script>` tags (for example both `@twodashes/universal` and `@twodashes/browser`, or `/sort_strings` and `/arrays`). All downloaded scripts will be combined into one single flat `window.__` dictionary/object. See [code sandbox](https://codesandbox.io/s/twodashes-universal-demo-2r4os). Please do message ([Paul](https://paulshorey.com)) if this is unclear, or if may know a better way of accomplishing all this.
+
+
 # Documentation
 
 ### Lodash contents (for comparison and reference):
@@ -60,7 +62,7 @@ These are exported for your choice of environment. When importing, specify **cjs
 - [todash](https://github.com/hannq/todash/tree/master/src) - comments/readme all in Chinese
 - [numjs](#) - brings some array/math functionality from Python to JS
 
-<p>&nbsp;</p>
+
 # Featured (examples):
 
 ### Universal functions:
@@ -101,7 +103,7 @@ As I make write (or find on Stackoverflow) a new function for myself/clients/emp
 
 See [CodePen example](https://codepen.io/paulshorey/pen/bGweWaB?editors=0012). Play around with all the functions.
 
-<p>&nbsp;</p>
+
 # Develop:
 
 Please try it, file an issue, add or fix some code, make a pull request. I'd love to make you an equal contributor. Contact [Paul Shorey](https://paulshorey.com) with any feaute requests or bugs. Thank you! Unit tests, code sandbox examples, and better documentation coming soon.
