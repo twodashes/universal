@@ -8,8 +8,10 @@ See also: 📙🚀 [@twodashes/browser](https://github.com/twodashes/browser) �
 
 All names in this library (functions, files) will change. Currently figuring out what to call everything. This library will be stabled when released as **`version 1`**. All this is new and NOT well tested. Please let me know if anything is broken.
 
+### Try it:
+
 [![npm package](https://img.shields.io/npm/v/@twodashes/universal.svg)](https://www.npmjs.com/package/@twodashes/universal)
-Try it out in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-universal-demo-2r4os)**
+Use it instantly in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-universal-demo-2r4os)**
 
 # Installation
 
