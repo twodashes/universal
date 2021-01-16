@@ -8,9 +8,9 @@ See also: 📙🚀 [@twodashes/browser](https://github.com/twodashes/browser) �
 
 All names in this library (functions, files) will change. Currently figuring out what to call everything. This library will be stabled when released as **`version 1`**. All this is new and NOT well tested. Please let me know if anything is broken.
 
-### Try it:
+[![npm package](https://img.shields.io/npm/v/@twodashes/universal.svg)](https://www.npmjs.com/package/@twodashes/universal) ![testing in progress](coverage/badge-statements.svg) Currently in progress: testing, documentation, examples.
 
-[![npm package](https://img.shields.io/npm/v/@twodashes/universal.svg)](https://www.npmjs.com/package/@twodashes/universal) [!testing in progress](coverage/badge-statements.svg)
+### Try it:
 
 Use it instantly in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-universal-demo-2r4os)**
 
@@ -21,12 +21,12 @@ Use it instantly in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-univer
   import { sort_by_rating_and_position } from "@twodashes/universal/esm/sort_strings"
 ```
 
-### CommonJS - require from "/umd" folder:
+### CommonJS - require from "/umd/" folder:
 ```JavaScript
   const { sort_by_rating_and_position } = require("@twodashes/universal/umd/sort_strings")
 ```
 
-### Browser - download from "/umd" folder:
+### Browser - download from "/umd/" folder:
 ```html
 <!-- download all functions into window.__ -->
 <script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/umd/index.js"></script>
