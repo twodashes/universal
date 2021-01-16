@@ -10,29 +10,32 @@ All names in this library (functions, files) will change. Currently figuring out
 
 ### Try it:
 
-[![npm package](https://img.shields.io/npm/v/@twodashes/universal.svg)](https://www.npmjs.com/package/@twodashes/universal)
+[![npm package](https://img.shields.io/npm/v/@twodashes/universal.svg)](https://www.npmjs.com/package/@twodashes/universal) [!testing in progress](coverage/badge-statements.svg)
+
 Use it instantly in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-universal-demo-2r4os)**
 
 # Installation
 
-These are exported for your choice of environment. When importing, specify **cjs**/**esm**/**\_\_** format. The **\_\_** is meant to be used with the browser `<script>` tag. It creates a `window.__` variable.
-
+### ES Modules - import from "/esm/" to support tree-shaking:
 ```JavaScript
   import { sort_by_rating_and_position } from "@twodashes/universal/esm/sort_strings"
 ```
 
+### CommonJS - require from "/umd" folder:
 ```JavaScript
-  const sort_strings = require("@twodashes/universal/esm/sort_strings")
+  const { sort_by_rating_and_position } = require("@twodashes/universal/umd/sort_strings")
 ```
 
+### Browser - download from "/umd" folder:
 ```html
 <!-- download all functions into window.__ -->
-<script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/__/index.js"></script>
-<!-- download only the types of functions you need_ -->
-<script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/__/sort_strings.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/umd/index.js"></script>
+<!-- download only the types of functions you need into window.__ -->
+<script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/umd/sort_strings.js"></script>
 ```
 
-Why not just use UMD modules standard? **Code splitting**. By specifying your choice "esm" (ES Modules), "cjs" (CommonJS) or "\_\_" (`window.__`), you're able to download only the specific functions you actually need, not everthing else. Additionally on the browser, you can download multiple times using multiple`<script>`tags (for example both`@twodashes/universal`and`@twodashes/browser`, or`/sort_strings`and`/arrays`). All downloaded scripts will be combined into one single flat`window.__` dictionary/object. See [code sandbox](https://codesandbox.io/s/twodashes-universal-demo-2r4os). Please do message ([Paul](https://paulshorey.com)) if this is unclear, or if may know a better way of accomplishing all this.
+**This builds as UMD (Universal Module Definition) in the "/umd/" folder, for both Node.js and the browser.** The original code is built using ES Modules, and is available in "/esm/" folder. It is not minified, but is small, simple, and efficient enough without being transpiled, so feel free to import from "/esm/".
+
 
 # Documentation
 
@@ -104,18 +107,6 @@ See [CodePen example](https://codepen.io/paulshorey/pen/bGweWaB?editors=0012). P
 
 # Develop:
 
-Please try it, file an issue, add or fix some code, make a pull request. I'd love to make you an equal contributor. Contact [Paul Shorey](https://paulshorey.com) with any feaute requests or bugs. Thank you! Unit tests, code sandbox examples, and better documentation coming soon.
+Please try it, file an issue, add or fix some code, make a pull request. I'd love to make you an equal contributor. Contact [Paul Shorey](https://paulshorey.com) with any feature requests or bugs. Thank you! Unit tests, code sandbox examples, and better documentation are currently in progress.
 
-This project is built using ES Modules in `./esm`. It is then compiled into CommonJS into `./cjs` and for the browser (exported as window.**) in `./**`. Read more about [ES Modules](https://nodejs.org/api/esm.html).
-
-## npm run build:
-
-**npm run build** runs these npm scripts, in this order:
-
-1. **ignore_index** - Copy ./esm/index.js to ./index.mjs (so it does not get converted in next step \*\*)
-2. **esm_cjs** - Convert ./esm to ./cjs
-3. **putback_index** - Copy ./index.mjs back to ./esm/index.js
-4. **esm_cjs_index** - Convert ./esm/index.js to ./cjs/index.js (so it can get processed without reference to other files)
-5. **browser** - Convert ./esm to ./\_\_
-
-\*\* Don't want to convert `./esm/index.js` to `./cjs/index.js` along with all the other modules in `./esm`, because `rollup` breaks up the functions to prevent redundant code. But I actually want `index.js` to be redundant, to contain code that is already in the other module files. This way, `index.js` is self-contained, and other files are self-contained, not importing anything. I could not figure out how to configure `rollup` command to NOT build with `require()` commands. Can not have `require()` commands because the `parcel` command does convert to browser code well with require commands. Each file already needs to be self-contained before running `parcel build`.
+This project is built using ES Modules in `./esm/`. It is then compiled into Universal Module Definition (UMD) in `./umd/` which works in Node.js and the browser.
