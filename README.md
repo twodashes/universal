@@ -26,11 +26,11 @@ Use it instantly in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-univer
   const { sort_by_rating_and_position } = require("@twodashes/universal/umd/sort_strings")
 ```
 
-### Browser - download from "/umd/" folder:
+### Browser script tag use "/umd/" folder
 ```html
 <!-- download all functions into window.__ -->
 <script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/umd/index.js"></script>
-<!-- download only the types of functions you need into window.__ -->
+<!-- download only the types of functions you need into window.__ - from /umd/category_of_functions -->
 <script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/umd/sort_strings.js"></script>
 ```
 
