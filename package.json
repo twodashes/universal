@@ -15,10 +15,6 @@
     "dist": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && rm -rf umd && parcel build esm/*.js -d umd --public-url .",
     "test": "jest --coverage && jest-coverage-badges"
   },
-  "scripts_todo": [
-    " --collectCoverage --collectCoverageFrom=dist/*.js --coverageDirectory=coverage",
-    "https://github.com/istanbuljs/nyc/blob/master/docs/setup-codecov.md"
-  ],
   "targets": {
     "app": {
       "engines": {
