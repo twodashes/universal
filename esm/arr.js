@@ -1,6 +1,16 @@
+
 /**
- * arr.length alternative
- *      actually useful, because it checks for existence of ${arr}
+ * Deep copy an array
+ * @param {array} arr
+ * @returns {array}
+ */
+function arr_clone(arr) {
+  return arr.map(item => Array.isArray(item) ? arr_clone(item) : item);
+}
+
+
+/**
+ * arr.length alternative - checks for existence of ${arr}
  * @param {array} arr
  * @returns {number}
  */
@@ -66,7 +76,7 @@ function arr_truthy_values(arr) {
 /*
  * EXPORT FOR BROWSER
  */
-const browser = { arr_fill, arr_includes, arr_length, arr_remove_item, arr_subtract, arr_truthy_values };
+const browser = { arr_clone, arr_fill, arr_includes, arr_length, arr_remove_item, arr_subtract, arr_truthy_values };
 if (typeof window === "object") {
   // set up for export
   window.__ = window.__ || {};
@@ -76,4 +86,4 @@ if (typeof window === "object") {
   }
 }
 /* EXPORT FOR NODE */
-export { arr_fill, arr_includes, arr_length, arr_remove_item, arr_subtract, arr_truthy_values };
+export { arr_clone, arr_fill, arr_includes, arr_length, arr_remove_item, arr_subtract, arr_truthy_values };

@@ -136,7 +136,17 @@
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
 <a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -215,56 +225,76 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * arr.length alternative
- *      actually useful, because it checks for existence of ${arr}
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+/**
+ * Deep copy an array
  * @param {array} arr
- * @returns {number}
+ * @returns {array}
  */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function arr_clone(arr) {</span></span>
+<span class="cstat-no" title="statement not covered" >  return arr.map(item =&gt; Array.isArray(item) </span>? arr_clone(item) : item);
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >/**</span>
+<span class="cstat-no" title="statement not covered" > * arr.length alternative - checks for existence of ${arr}</span>
+<span class="cstat-no" title="statement not covered" > * @param {array} arr</span>
+<span class="cstat-no" title="statement not covered" > * @returns {number}</span>
+<span class="cstat-no" title="statement not covered" > */</span>
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function arr_length(arr) {</span></span>
-<span class="cstat-no" title="statement not covered" >  return arr &amp;&amp; arr.length ? arr.length : 0;</span>
+<span class="cstat-no" title="statement not covered" >  return arr &amp;&amp; </span>arr.length ? arr.length : 0;
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >/**</span>
-<span class="cstat-no" title="statement not covered" > * Create a new array, and fill it with values (all same value)</span>
-<span class="cstat-no" title="statement not covered" > * @param {*} value - what value to assign to each item in array</span>
-<span class="cstat-no" title="statement not covered" > * @param {number} len - how long to make the array</span>
-<span class="cstat-no" title="statement not covered" > * @returns {array}</span>
+<span class="cstat-no" title="statement not covered" > * Create a ne</span>w array, and fill it with values (all same value)
+<span class="cstat-no" title="statement not covered" > *</span> @param {*} value - what value to assign to each item in array
+<span class="cstat-no" title="statement not covered" ></span> * @param {number} len - how long to make the array
+<span class="cstat-no" title="statement not covered" > * @</span>returns {array}
 <span class="cstat-no" title="statement not covered" > */</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function arr_fill(value, len) {</span></span>
+<span class="cstat-no" title="statement not covered" >function arr_fill(value, len) {</span>
 <span class="cstat-no" title="statement not covered" >  let arr = [];</span>
 <span class="cstat-no" title="statement not covered" >  for (let i = 0; i &lt; len; i++) {</span>
 <span class="cstat-no" title="statement not covered" >    arr.push(value);</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >  return arr;</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  return arr;</span></span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >/**</span>
-<span class="cstat-no" title="statement not covered" > * Subtract array B values from array A. Return remaining array A. Expects 2 parameters, each an array.</span>
-<span class="cstat-no" title="statement not covered" > *      NOTE: first array A must be the main one. Words also appearing in B will be removed</span>
-<span class="cstat-no" title="statement not covered" > * @param a {array} - values we care about. Analyze these, compared to b</span>
-<span class="cstat-no" title="statement not covered" > * @param b {array} - for comparison only. Array values unique to B will be ignored</span>
-<span class="cstat-no" title="statement not covered" > * @returns {array} - returns an array of values which appear in A but not B</span>
-<span class="cstat-no" title="statement not covered" > */</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function arr_subtract(a = [], b = []) {</span></span>
-<span class="cstat-no" title="statement not covered" >  return a.filter(function (i) {</span>
-<span class="cstat-no" title="statement not covered" >    return !b.includes(i);</span>
-<span class="cstat-no" title="statement not covered" >  });</span>
+<span class="cstat-no" title="statement not covered" > *</span> Subtract array B values from array A. Return remaining array A. Expects 2 parameters, each an array.
+<span class="cstat-no" title="statement not covered" ></span> *      NOTE: first array A must be the main one. Words also appearing in B will be removed
+<span class="cstat-no" title="statement not covered" > * @</span>param a {array} - values we care about. Analyze these, compared to b
+<span class="cstat-no" title="statement not covered" > * @param b {array} - for comparison only. Array values uniq</span>ue to B will be ignored
+<span class="cstat-no" title="statement not covered" > * @</span>returns {array} - returns an array of values which appear in A but not B
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > */</span></span>
+<span class="cstat-no" title="statement not covered" >function arr_subtract(a = [], b = []) {</span>
+<span class="cstat-no" title="statement not covered" ></span>  return a.filter(function (i) {
+<span class="cstat-no" title="statement not covered" ></span>    return !b.includes(i);
+<span class="cstat-no" title="statement not covered" >  })</span>;
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >/**</span>
 <span class="cstat-no" title="statement not covered" > * Remove an item (if exact match string/number) from array</span>
 <span class="cstat-no" title="statement not covered" > */</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function arr_remove_item(arr = [], item = "") {</span></span>
-<span class="cstat-no" title="statement not covered" >  return arr.filter((it) =&gt; it !== item);</span>
-<span class="cstat-no" title="statement not covered" >}</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >/**</span>
-<span class="cstat-no" title="statement not covered" > * Similarities between arrays A and B</span>
-<span class="cstat-no" title="statement not covered" > * @param a {array}</span>
-<span class="cstat-no" title="statement not covered" > * @param b {array}</span>
-<span class="cstat-no" title="statement not covered" > * @returns {array} - returns an array with values which appear in both A and B</span>
-<span class="cstat-no" title="statement not covered" > */</span>
+function arr_remove_item(arr = [], item = "") {
+  return arr.filter((it) =&gt; it !== item);
+}
+&nbsp;
+/**
+ * Similarities between arrays A and B
+ * @param a {array}
+ * @param b {array}
+ * @returns {array} - returns an array with values which appear in both A and B
+ */
 function arr_includes(a, b) {
   return a.filter(function (i) {
     return b.includes(i);
@@ -274,26 +304,26 @@ function arr_includes(a, b) {
 /**
  * Array with empty/falsy values removed.
  * @param arr {array}
- * @returns {array}
+ * @returns<span class="branch-0 cbranch-no" title="branch not covered" > {array}</span>
  */
 function arr_truthy_values(arr) {
   return arr.filter((val) =&gt; !!val);
-}
+}<span class="branch-0 cbranch-no" title="branch not covered" ></span>
 &nbsp;
 /*
  * EXPORT FOR BROWSER
  */
-const browser = { arr_fill, arr_includes, arr_length, arr_remove_item, arr_subtract, arr_truthy_values };
-if (typeof <span class="branch-0 cbranch-no" title="branch not covered" >window === "</span>object") {
+const browser = { arr_clone, arr_fill, arr_includes, arr_length, arr_remove_item, arr_subtract, arr_truthy_values };
+if (typeof window === "object") {
   // set up for export
   window.__ = window.__ || {};
   // flatten
-  for (<span class="branch-0 cbranch-no" title="branch not covered" >let func in browser) {</span>
+  for (let func in browser) {
     window.__[func] = browser[func];
   }
 }
 /* EXPORT FOR NODE */
-export { arr_fill, arr_includes, arr_length, arr_remove_item, arr_subtract, arr_truthy_values };
+export { arr_clone, arr_fill, arr_includes, arr_length, arr_remove_item, arr_subtract, arr_truthy_values };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -301,7 +331,7 @@ export { arr_fill, arr_includes, arr_length, arr_remove_item, arr_subtract, arr_
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Jan 16 2021 04:06:24 GMT-0500 (Eastern Standard Time)
+                at Thu Jan 21 2021 23:54:01 GMT-0500 (Eastern Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>
