@@ -1,5 +1,12 @@
 const funcs = require('../umd/arr.js');
-const {arr_includes, arr_truthy_values} = funcs
+const {arr_clone, arr_includes, arr_truthy_values} = funcs
+
+test('arr_clone', () => {
+  let a = [1,2,3,4]
+  let cloned = arr_clone(a)
+  cloned[0]=9;
+  expect(a[0]===1).toBeTruthy()
+});
 
 test('arr_includes', () => {
   let a = [1,2,3,4]
