@@ -1,8 +1,3 @@
-
-const json_parse = function (val) {
-  return JSON.parse(JSON.stringify(val));
-};
-
 /**
  * @param {object} obj1
  * @param {object} obj2
@@ -95,7 +90,7 @@ const objects_merge = function obj_merge(obj1, obj2) {
  * EXPORT FOR BROWSER
  */
 if (typeof window === "object") {
-  const browser = { json_parse, objects_merge, object_keys_from_array_values, objects_are_equal };
+  const browser = { objects_merge, object_keys_from_array_values, objects_are_equal };
   // set up for export
   window.__ = window.__ || {};
   // flatten
@@ -104,4 +99,4 @@ if (typeof window === "object") {
   }
 }
 /* EXPORT FOR NODE */
-export { json_parse, objects_merge, object_keys_from_array_values, objects_are_equal };
+export { objects_merge, object_keys_from_array_values, objects_are_equal };
