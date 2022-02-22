@@ -2,13 +2,13 @@
 
 Like @lodash, but with more dashes (lots of functionality, and uses underscores instead of camelCase). Utilities and "pure" functions (almost pure - sorting use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc.
 
-See also: 📙🚀 [@twodashes/browser](https://github.com/twodashes/browser) 📙🚀, which is structured the same way, but only for browser-specific code like OS, Retina, AJAX, URLs, etc. Also [@twodashes/node](https://github.com/twodashes/node), for HTTP requests and CLI args for Node. Planned for the future are more platform-specific functions: "@twodashes/rnative" for React Native, "@twodashes/ionic", and in a galaxy far far away "@twodashes/quasar".
+See also: 📙🚀 [twodashes-browser](https://github.com/twodashes/browser) 📙🚀, which is structured the same way, but only for browser-specific code like OS, Retina, AJAX, URLs, etc. Also [twodashes-node](https://github.com/twodashes/node), for HTTP requests and CLI args for Node. Planned for the future are more platform-specific functions: twodashes-rnative" for React Native, twodashes-ionic", and in a galaxy far far away twodashes-quasar".
 
 ### ⚠️ PLEASE NOTE: ⚠️
 
 All names in this library (functions, files) will change. Currently figuring out what to call everything. This library will be stabled when released as **`version 1`**. All this is new and NOT well tested. Please let me know if anything is broken.
 
-[![npm package](https://img.shields.io/npm/v/@twodashes/universal.svg)](https://www.npmjs.com/package/@twodashes/universal) ![testing in progress](coverage/badge-statements.svg) Currently in progress: testing, documentation, examples.
+[![npm package](https://img.shields.io/npm/v/twodashes-universal.svg)](https://www.npmjs.com/package/twodashes-universal) ![testing in progress](coverage/badge-statements.svg) Currently in progress: testing, documentation, examples.
 
 ### Try it:
 
@@ -17,25 +17,27 @@ Use it instantly in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-univer
 # Installation
 
 ### ES Modules - import from "/esm/" to support tree-shaking:
+
 ```JavaScript
   import { sort_by_rating_and_position } from "@twodashes/universal/esm/sort_strings"
 ```
 
 ### CommonJS - require from "/umd/" folder:
+
 ```JavaScript
-  const { sort_by_rating_and_position } = require("@twodashes/universal/umd/sort_strings")
+  const { sort_by_rating_and_position } = require(twodashes-universal/umd/sort_strings")
 ```
 
 ### Browser script tag use "/umd/" folder
+
 ```html
 <!-- download all functions into window.__ -->
-<script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/umd/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/twodashes-universal@latest/umd/index.js"></script>
 <!-- download only the types of functions you need into window.__ - from /umd/category_of_functions -->
-<script src="https://cdn.jsdelivr.net/npm/@twodashes/universal@latest/umd/sort_strings.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/twodashes-universal@latest/umd/sort_strings.js"></script>
 ```
 
 **This builds as UMD (Universal Module Definition) in the "/umd/" folder, for both Node.js and the browser.** The original code is built using ES Modules, and is available in "/esm/" folder. It is not minified, but is small, simple, and efficient enough without being transpiled, so feel free to import from "/esm/".
-
 
 # Documentation
 

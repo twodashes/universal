@@ -1,23 +1,23 @@
-import * as arr from "./arr.js";
-import * as arrays from "./arrays.js";
-import * as obj from "./obj.js";
-import * as objects from "./objects.js";
-import * as sort_words from "./sort_words.js";
-import * as sort_strings from "./sort_strings.js";
-import * as sort_objects from "./sort_objects.js";
-import * as strings from "./strings.js";
-import * as cli from "./cli.js";
-import * as curry from "./curry.js";
-import * as functions from "./etc.js";
-import * as numbers from "./numbers.js";
-import * as promises from "./promises.js";
-import * as req from "./req.js";
-import * as requests from "./requests.js";
-import * as json from "./json.js";
-import * as string from "./string.js";
-import * as ui from "./ui.js";
-import * as urls from "./urls.js";
-import * as words from "./words.js";
+import * as arr from "./arr.js.js";
+import * as arrays from "./arrays.js.js";
+import * as obj from "./obj.js.js";
+import * as objects from "./objects.js.js";
+import * as sort_words from "./sort_words.js.js";
+import * as sort_strings from "./sort_strings.js.js";
+import * as sort_objects from "./sort_objects.js.js";
+import * as strings from "./strings.js.js";
+import * as cli from "./cli.js.js";
+import * as curry from "./curry.js.js";
+import * as functions from "./etc.js.js";
+import * as numbers from "./numbers.js.js";
+import * as promises from "./promises.js.js";
+import * as req from "./req.js.js";
+import * as requests from "./requests.js.js";
+import * as json from "./json.js.js";
+import * as string from "./string.js.js";
+import * as ui from "./ui.js.js";
+import * as urls from "./urls.js.js";
+import * as words from "./words.js.js";
 
 let all = {
   arr,
